@@ -95,7 +95,45 @@ public class AnalisadorLexico {
                   if (Character.isLetter(vetorCodigo[posicaoFinal])){
                     estado = 1;
                   }
-                  //COMPLETAR AQUI
+                  else if (Character.isDigit(vetorCodigo[posicaoFinal])) {
+                    estado = 3;
+                  }
+                  else if (Character.toString(vetorCodigo[posicaoFinal]) == "<") {
+                      estado = 7;
+                  }
+                  else if (Character.toString(vetorCodigo[posicaoFinal]) == ">") {
+                      estado = 11;
+                  }
+                  else if (Character.toString(vetorCodigo[posicaoFinal]) == "=") {
+                      estado = 14;
+                  }
+                  else if (Character.toString(vetorCodigo[posicaoFinal]) == ";") {
+                      estado = 15;
+                  }
+                  else if (Character.toString(vetorCodigo[posicaoFinal]) == ":") {
+                      estado = 16;
+                  }
+                  else if (Character.toString(vetorCodigo[posicaoFinal]) == "(") {
+                      estado = 19;
+                  }
+                  else if (Character.toString(vetorCodigo[posicaoFinal]) == ")") {
+                      estado = 20;
+                  }
+                  else if (Character.toString(vetorCodigo[posicaoFinal]) == "\"") {
+                      estado = 21;
+                  }
+                  else if (Character.toString(vetorCodigo[posicaoFinal]) == "+") {
+                      estado = 23;
+                  }
+                  else if (Character.toString(vetorCodigo[posicaoFinal]) == "-") {
+                      estado = 24;
+                  }
+                  else if (Character.toString(vetorCodigo[posicaoFinal]) == "*") {
+                      estado = 25;
+                  }
+                  else if (Character.toString(vetorCodigo[posicaoFinal]) == "/") {
+                      estado = 26;
+                  }
                   break;
                 case 1:
                   if (!Character.isLetterOrDigit(vetorCodigo[posicaoFinal])) {
@@ -106,7 +144,29 @@ public class AnalisadorLexico {
                    posicaoFinal--;
                    lexema = String.copyValueOf(vetorCodigo, posicaoInicial, posicaoFinal-posicaoInicial);
                    return tabelaSimbolos.obterToken(lexema);
-                //COMPLETAR AQUI
+                case 3:
+                    if (!Character.isDigit(vetorCodigo[posicaoFinal])) {
+                        estado = 6;
+                    } else if (Character.toString(vetorCodigo[posicaoFinal]) == ".") {
+                        estado = 4;
+                    }
+                    break;
+                case 4:
+                    if (!Character.isDigit(vetorCodigo[posicaoFinal])) {
+                        estado = 5;
+                    }
+                    break;
+                case 5:
+                    posicaoFinal--;
+                    lexema = String.copyValueOf(vetorCodigo, posicaoInicial, posicaoFinal-posicaoInicial);
+                    return tabelaSimbolos.obterToken(lexema);
+                case 6:
+                    posicaoFinal--;
+                    lexema = String.copyValueOf(vetorCodigo, posicaoInicial, posicaoFinal-posicaoInicial);
+                    return tabelaSimbolos.obterToken(lexema);
+
+                case 7:
+
             }
             
            posicaoFinal++;
@@ -114,7 +174,4 @@ public class AnalisadorLexico {
 
         return null;
     }
-
- 
-
 }
