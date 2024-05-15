@@ -160,9 +160,11 @@ public class AnalisadorLexico {
                     break;
                 case 5:
                     posicaoFinal--;
+                    lexema = String.copyValueOf(vetorCodigo, posicaoInicial, posicaoFinal - posicaoInicial);
                     return Token.NUMERO_REAL;
                 case 6:
                     posicaoFinal--;
+                    lexema = String.copyValueOf(vetorCodigo, posicaoInicial, posicaoFinal - posicaoInicial);
                     return Token.NUMERO_INTEIRO;
                 case 7:
                     estado = 10;
