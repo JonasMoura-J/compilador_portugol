@@ -446,6 +446,5 @@ public class AnalisadorSintatico {
         return new NoComandoAtribuicao(identificador, expressao, numeroLinhaAtribuicao);
     }
 
-
 }
 
