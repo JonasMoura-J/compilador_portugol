@@ -151,6 +151,9 @@ public class GeradorCodigoIntermediario {
     private void traduzirComandoLer(NoComandoLer comandoLer){
         //Completar aqui.
         //Usar instrucoes.add() para incluir a instrução.
+
+        InstrucaoLer instrucaoLer = new InstrucaoLer(comandoLer.obterIdentificador());
+        instrucoes.add(instrucaoLer);
     }
 
     private void traduzirComandoEscrever(NoComandoEscrever comandoEscrever){

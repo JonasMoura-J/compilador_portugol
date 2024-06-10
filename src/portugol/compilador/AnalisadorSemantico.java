@@ -119,6 +119,8 @@ public class AnalisadorSemantico {
     // Métodos para completar --------------------------------------------------
 
     private void verificarTipoComandoCondicao(NoComandoCondicao comandoCondicao) throws Exception {
+        //verificar se retorna um valorlogico
+
        // Completar arqui. 
        // Usar verificarTipoExpressaoRelacional
        // Usar verificarTipoComandos
@@ -134,11 +136,16 @@ public class AnalisadorSemantico {
 
     private void verificarComandoEnquantoFaca(NoComandoEnquantoFaca comandoEnquantoFaca) throws Exception{
        //Completar arqui. Usar os métodos que já existem para fazer as verificações.
+
+        verificarTipoExpressaoRelacional(comandoEnquantoFaca.obterExpressaoRelacional());
+        verificarTipoComandos(comandoEnquantoFaca.obterListaComandos());
     }
 
     private void verificarComandoAtribuicao(NoComandoAtribuicao comandoAtribuicao) throws Exception {
         //Completar aqui.
         // Usar tratadorErro.emitirErroSemanticoTipoValorEsperado
+
+
     }
     
 }
